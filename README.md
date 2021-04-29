@@ -17,7 +17,7 @@ Here are some rule that "run" the game:
 
 `yarn install`
 
-Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) with browser
+Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) in a browser
 
 Click on Start =)
 
