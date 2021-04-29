@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game of Life</title>
+        <link href="stillshit.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body class="laboratory">
+        <div id="sample-table">
+            <button id="btn_playpause">Start</button>
+            <button id="btn_nextStep">Next step</button>
+
+        </div>
+
+        <script src="node_modules/p5/lib/p5.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="Cell.js"></script>
+        <script src="PetriPlate.js"></script>
+        <script>
+            var loop; isPlayed = false;
+
+            var sample = new PetriPlate(50);
+
+            $('#btn_playpause').click((e)=>{
+
+                if(isPlayed) {
+                    isPlayed = false;
+                    e.target.innerText = "Pause";
+                    clearInterval(loop);
+                } else {
+                    isPlayed = true;
+                    e.target.innerText = 'Play'
+                    loop = setInterval(() => {
+                        sample.nextStep();
+                    } ,100);
+                }
+            });
+
+            $('#btn_nextStep').click((e)=>{
+                isPlayed = false;
+                clearInterval(loop);
+                sample.nextStep();
+
+            });
+
+            function setup() {
+                const CANVAS_SIZE = displayWidth/2;
+
+                let canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+                canvas.position(CANVAS_SIZE/4, 0);
+                canvas.parent('sample-table');
+                background(200, 200, 200);
+            }
+
+            function draw() {
+                sample.draw();
+            }
+
+            function mouseClicked() {
+                if(mouseX > 0 && mouseY > 0){
+                    let indexX = ceil(mouseY / Cell.WIDTH)-1;
+                    let indexY = ceil(mouseX / Cell.WIDTH)-1;
+                    sample.cells[indexX][indexY].state = sample.cells[indexX][indexY].state === Cell.STATE_ALIVE ? Cell.STATE_DEAD : Cell.STATE_ALIVE;
+                }
+            }
+        </script>
+    </body>
+</html>
