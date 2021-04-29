@@ -17,6 +17,7 @@ class PetriPlate {
                 } else {
                     this.cells[i][j].state = Cell.STATE_DEAD;
                 }
+                this.cells[i][j].state = Cell.STATE_DEAD;
             }
         }
     }

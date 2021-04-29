@@ -10,14 +10,17 @@ class Cell {
     }
 
     draw(){
-        strokeWeight(1);
+        strokeWeight(0);
+        fill(color(127, 127, 127));
+        square(this.y, this.x, Cell.WIDTH);
+
         if(this.state === Cell.STATE_DEAD) {
             fill(color(255, 255, 255));
         } else if (this.state === Cell.STATE_ALIVE) {
             fill(color(0, 0, 0));
         }
         // switch x and y because of p5's coordinate system ><
-        square(this.y, this.x, Cell.WIDTH);
+        square(this.y+1, this.x+1, Cell.WIDTH-1);
     }
 
     isAlive(){

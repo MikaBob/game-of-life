@@ -26,11 +26,11 @@
 
                 if(isPlayed) {
                     isPlayed = false;
-                    e.target.innerText = "Pause";
+                    e.target.innerText = 'Play';
                     clearInterval(loop);
                 } else {
                     isPlayed = true;
-                    e.target.innerText = 'Play'
+                    e.target.innerText = 'Pause'
                     loop = setInterval(() => {
                         sample.nextStep();
                     } ,100);
