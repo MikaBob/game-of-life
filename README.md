@@ -13,9 +13,7 @@ Here are some rule that "run" the game:
 
 - Any other case, the cell dies (surpopulation) or remains empty (not enough neighbours)
 
-# Install & play
-
-`yarn install`
+# How to "play"
 
 Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) with browser
 
