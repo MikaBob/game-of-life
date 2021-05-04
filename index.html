@@ -7,19 +7,55 @@
         <link href="stillshit.css" type="text/css" rel="stylesheet" />
     </head>
     <body class="laboratory">
-        <div id="sample-table">
-            <button id="btn_playpause">Start</button>
-            <button id="btn_nextStep">Next step</button>
-            <button id="btn_erase">Erase</button>
-
+        <div class="leftPanel">
+            <div class="controls">
+                <h1>Controls</h1>
+                <button id="btn_playpause">Start</button>
+                <button id="btn_nextStep">Next step</button>
+                <button id="btn_erase">Erase</button>
+            </div>
+            <div class="sample-table">
+                <h1>Special forms</h1>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Pulsar</h2>
+                    <img class="hidden" src="./img/pulsar.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Spaceship</h2>
+                    <img class="hidden" src="./img/spaceship.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Light weight spaceship</h2>
+                    <img class="hidden" src="./img/light-weight-spaceship.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Middle weight spaceship</h2>
+                    <img class="hidden" src="./img/middle-weight-spaceship.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Heavy weight spaceship</h2>
+                    <img class="hidden" src="./img/heavy-weight-spaceship.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Penta-decathlon</h2>
+                    <img class="hidden" src="./img/penta-decathlon.png"/>
+                </div>
+                <div class="sample">
+                    <h2 onclick="toggle(this)">Spaceship launcher</h2>
+                    <img class="hidden" src="./img/spaceship_launcher.png"/>
+                </div>
+            </div>
         </div>
+
+        <div id="petriplate"></div>
+
 
         <script src="node_modules/p5/lib/p5.min.js"></script>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script src="Cell.js"></script>
         <script src="PetriPlate.js"></script>
         <script>
-            var loop; isPlayed = false;
+            var isPlayed = false;
 
             var sample = new PetriPlate(50);
 
@@ -43,11 +79,11 @@
             });
 
             function setup() {
-                const CANVAS_SIZE = displayWidth/2;
+                const CANVAS_SIZE = 600;
 
                 let canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-                canvas.position(CANVAS_SIZE/4, 0);
-                canvas.parent('sample-table');
+                //canvas.position(CANVAS_SIZE/4, 0);
+                canvas.parent('petriplate');
                 background(200, 200, 200);
             }
 
@@ -78,6 +114,17 @@
                     }
                 }
                 return null;
+            }
+
+
+            function toggle(e){
+                let img = $(e).first().next("img");
+                if(img.hasClass("hidden")) {
+                    img.removeClass("hidden");
+
+                } else {
+                    img.addClass("hidden");
+                }
             }
 
         </script>

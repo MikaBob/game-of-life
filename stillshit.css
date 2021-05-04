@@ -3,7 +3,41 @@ body {
     padding: 0px;
 }
 
-#sample-table {
-    width: 100%;
-    height: 100%;
+#petriplate {
+    max-width: 50%;
+    float: right;
 }
+
+.laboratory {
+    max-width: 1200px;
+}
+
+.leftPanel {
+    max-width: 50%;
+    float: left;
+    padding-left: 5px;
+}
+
+.controls {
+    padding: 5px;
+    border-bottom: solid 1px black;
+}
+
+.hidden {
+    display: none;
+}
+
+.sample {
+    border-bottom: solid 1px black;
+}
+
+.sample-table img {
+    max-width: 300px;
+
+}
+
+.sample h2:hover{
+    cursor: pointer;
+    color: red;
+}
+
