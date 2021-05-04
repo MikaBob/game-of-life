@@ -10,6 +10,7 @@
         <div id="sample-table">
             <button id="btn_playpause">Start</button>
             <button id="btn_nextStep">Next step</button>
+            <button id="btn_erase">Erase</button>
 
         </div>
 
@@ -22,26 +23,23 @@
 
             var sample = new PetriPlate(50);
 
-            $('#btn_playpause').click((e)=>{
-
-                if(isPlayed) {
-                    isPlayed = false;
-                    e.target.innerText = 'Play';
-                    clearInterval(loop);
-                } else {
-                    isPlayed = true;
-                    e.target.innerText = 'Pause'
-                    loop = setInterval(() => {
-                        sample.nextStep();
-                    } ,100);
+            $('#btn_erase').click(()=>{
+                isPlayed = false;
+                for(let i = 0 ; i < sample.size; i++){
+                    for(let j = 0 ; j < sample.size; j++){
+                        sample.cells[i][j].state = Cell.STATE_DEAD;
+                    }
                 }
+                sample.generationNumber = 0;
             });
 
-            $('#btn_nextStep').click((e)=>{
-                isPlayed = false;
-                clearInterval(loop);
-                sample.nextStep();
+            $('#btn_playpause').click(()=>{
+                isPlayed = !isPlayed;
+            });
 
+            $('#btn_nextStep').click(()=>{
+                isPlayed = false;
+                sample.nextStep();
             });
 
             function setup() {
@@ -53,17 +51,35 @@
                 background(200, 200, 200);
             }
 
+            var previousCellUnderMouse = null;
+
             function draw() {
                 sample.draw();
+                $('#btn_playpause').text(isPlayed ? 'Pause' : 'Play');
+                if(isPlayed) {
+                    sample.nextStep();
+                }
+
+                let currentCellUnderMouse = getCellUnderMouse();
+
+                if(mouseIsPressed && currentCellUnderMouse !== null && currentCellUnderMouse !== previousCellUnderMouse){
+                    currentCellUnderMouse.state = currentCellUnderMouse.state === Cell.STATE_ALIVE ? Cell.STATE_DEAD : Cell.STATE_ALIVE;
+                    previousCellUnderMouse = currentCellUnderMouse;
+                }
             }
 
-            function mouseClicked() {
+            function getCellUnderMouse() {
                 if(mouseX > 0 && mouseY > 0){
                     let indexX = ceil(mouseY / Cell.WIDTH)-1;
                     let indexY = ceil(mouseX / Cell.WIDTH)-1;
-                    sample.cells[indexX][indexY].state = sample.cells[indexX][indexY].state === Cell.STATE_ALIVE ? Cell.STATE_DEAD : Cell.STATE_ALIVE;
+                    if(indexX < sample.size && indexY < sample.size) {
+                        //console.log(indexX,indexY, sample.cells[indexX][indexY]);
+                        return sample.cells[indexX][indexY];
+                    }
                 }
+                return null;
             }
+
         </script>
     </body>
 </html>

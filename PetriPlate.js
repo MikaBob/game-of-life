@@ -2,6 +2,7 @@ class PetriPlate {
     size = 0;
     cells = null;
     generationNumber = 0;
+    nbAlive = 0;
 
     constructor(size) {
         this.size = size;
@@ -14,29 +15,31 @@ class PetriPlate {
                 this.cells[i][j] = new Cell(i*Cell.WIDTH, j*Cell.WIDTH);
                 if(Math.random() < 0.2){
                     this.cells[i][j].state = Cell.STATE_ALIVE;
+                    this.nbAlive++;
                 } else {
                     this.cells[i][j].state = Cell.STATE_DEAD;
                 }
-                this.cells[i][j].state = Cell.STATE_DEAD;
+                //this.cells[i][j].state = Cell.STATE_DEAD;
             }
         }
     }
 
     draw(){
-        let nbAlive = 0;
+        let countNbAlive = 0;
         for(let i = 0 ; i < this.size; i++){
             for(let j = 0 ; j < this.size; j++){
                 this.cells[i][j].draw();
                 if(this.cells[i][j].isAlive())
-                    nbAlive++;
+                    countNbAlive++;
             }
         }
+        this.nbAlive = countNbAlive;
         fill(255, 255,255);
         rect(0, this.size*Cell.WIDTH, this.size*Cell.WIDTH, Cell.WIDTH);
 
         fill(0, 0, 0);
         textSize(Cell.WIDTH*0.9);
-        text("Gen. "+this.generationNumber+ "   Alive: "+nbAlive, Cell.WIDTH*0.1, this.size*Cell.WIDTH + Cell.WIDTH*0.8);
+        text("Gen. "+this.generationNumber+ "   Alive: "+this.nbAlive, Cell.WIDTH*0.1, this.size*Cell.WIDTH + Cell.WIDTH*0.8);
     }
 
     nextStep() {
