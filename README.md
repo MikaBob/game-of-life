@@ -1,5 +1,5 @@
 # Description
-Just another [Conway's Game of Life}(https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) using [p5](https://p5js.org/).
+Just another [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) using [p5](https://p5js.org/).
 
 Based on a 2D table, each table's square represent a cell.
 
@@ -15,7 +15,7 @@ Here are some rule that "run" the game:
 
 # How to "play"
 
-Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) with browser
+Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) in a browser
 
 Click on Start =)
 
