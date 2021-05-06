@@ -12,7 +12,8 @@ body {
 }
 
 button {
-    width: 75px;
+    width: 80px;
+    height: 40px;
 }
 
 h1, h2, h3 {
@@ -20,8 +21,12 @@ h1, h2, h3 {
     margin: 0 0 5px 0;
 }
 
-input {
+.range {
     width: 100%;
+}
+
+.range input{
+    width: 50%;
 }
 
 ul li {

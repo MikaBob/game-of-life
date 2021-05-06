@@ -12,23 +12,29 @@
             <div class="leftPanel">
                 <h2>Explanation</h2>
                 <div class="description">
-                    <p>A cell can have two states, dead (white) or alive (black). There are 3 rules that "run" the game:</p>
+                    <p>
+                        The game of life is not really a game, as there is actually no player. It is a simple set of rules that determines what is going to happend at each step.
+                        On a 2D table (seen on the right, 60*60) each cell of the table represnet a (biological). A cell can have two states, dead /empty (white) or alive (black) and
+                        its state will depend on his 8 neighbours cell (horizontally, vertically and diagonally). There are 3 rules that "run" the game.
+                    </p>
                     <ul>
-                        <li>If an empty cell has exactly 3 cells alive, then it become alive as a "new-born" (reproduction)</li>
-                        <li>If an living cell has 2 or 3 neighbours, it remains alive (survival)</li>
-                        <li>Any other case, the cell dies (overpopulation) or remains empty (underpopulation therefore not reproducing)</li>
+                        <li>If a empty / dead cell has exactly 3 living cells arounds, then it become alive as a "new-born" (reproduction)</li>
+                        <li>If a living cell has 2 or 3 neighbours, it remains alive (survival)</li>
+                        <li>Any other case, the cell dies (overpopulation) or remains empty (underpopulation, therefore not reproducing)</li>
                     </ul>
                 </div>
 
                 <h2>Controls</h2>
                 <div class="controls">
-                    <p>You can click (or drag) to change a cell state, create some layout and see it is going</p>
-                    <label for="btn_gameSpeed">Speed</label>
-                    <input type="range" id="btn_gameSpeed" name="btn_gameSpeed" value="-32" min="-1000" max="-32"/>
-                    <button id="btn_playpause">Play</button>
+                    <p>You can click on a cell to change its state, create some layout and see where it is going</p>
+                    <div class="range">
+                        <label for="btn_gameSpeed">Actualisation rate</label>
+                        <input type="range" id="btn_gameSpeed" name="btn_gameSpeed" value="-32" min="-1000" max="-32"/>
+                    </div>
+                    <button id="btn_playpause">Auto-play</button>
                     <button id="btn_nextStep">Next step</button>
                     <button id="btn_erase">Erase</button>
-                    <button id="btn_reload">Reload</button>
+                    <button id="btn_reload">Reset</button>
                 </div>
 
                 <h2>Special pattern </h2>
@@ -47,10 +53,6 @@
                         <img class="hidden" src="./img/light-weight-spaceship.png"/>
                     </div>
                     <div class="sample">
-                        <h3 onclick="toggle(this)">Middle weight spaceship</h3>
-                        <img class="hidden" src="./img/middle-weight-spaceship.png"/>
-                    </div>
-                    <div class="sample">
                         <h3 onclick="toggle(this)">Heavy weight spaceship</h3>
                         <img class="hidden" src="./img/heavy-weight-spaceship.png"/>
                     </div>
@@ -59,13 +61,38 @@
                         <img class="hidden" src="./img/penta-decathlon.png"/>
                     </div>
                     <div class="sample">
+                        <h3 onclick="toggle(this)">Replicator</h3>
+                        <img class="hidden" src="./img/replicator.png"/>
+                    </div>
+                    <div class="sample">
                         <h3 onclick="toggle(this)">Spaceship launcher</h3>
                         <img class="hidden" src="./img/spaceship_launcher.png"/>
                     </div>
                 </div>
-                <br/>
                 <h2>That's it ?</h2>
-                <div class="wouldYouLikeToKnowMore"><p>This is a simple presentation which can only hold 60*60 cells. You can look up for much more complexe system (with guns, self-replication, trains), pattern that create amazing designs, or with another environements (with octognes, 1D table) which also has their cool pattern / designs</p></div>
+                <div class="wouldYouLikeToKnowMore"><p>It may seems pointless at first view. This is a typical excercie for IT-students but there is more, much more...
+                        This page is a small presentation of the game of life, which can only hold 60*60 cells.
+                        The awesomeness reside in the simplicity og the game, and the complexity of the result.
+                        This is called the game of life for an excellent anaology to life: The emergence. From a simple set of rules we create systems, that develop and evolve.
+                        Just like you, you are a very complex system of cells.
+                        You can look up for much more complexe system and pattern that create amazing designs.
+                    </p>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gun</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Spacefiller">Spacefiller</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Rake_(cellular_automaton)">Rake</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Puffer_train">Puffer train</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Breeder_(cellular_automaton)">Breeder</a></li>
+                        <li><a href="https://www.conwaylife.com/wiki/Replicator">High life Replicator</a></li>
+                    </ul>
+                    <br>
+                    <p>Or with <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">other environements (1D)</a> which also has their cool pattern / designs.
+                        Looks for videos. This is interesting.
+
+                        do not miss the most incredible thing about this game. Re-creating <a href="https://www.youtube.com/watch?v=vGWGeund3eA">Logic gates</a>
+                        which lead to machine like <a href="https://www.youtube.com/watch?v=3NDAZ5g4EuU">a digital clock</a>
+                        or even a <a href="https://www.youtube.com/watch?v=xP5-iIeKXE8">simulation of the game by itself</a> and do not forget. This is all generated by a set of 3 rules...</p>
+                </div>
             </div>
             <div id="petriplate" class="petriplate"></div>
        </div>
@@ -161,7 +188,7 @@
             }
 
             function startOrStopGame(){
-                $('#btn_playpause').text(isPlayed ? 'Pause' : 'Play');
+                $('#btn_playpause').text(isPlayed ? 'Pause' : 'Auto-play');
                 if(isPlayed && interval === null) {
                     interval = setInterval(()=>{
                         sample.nextStep();
