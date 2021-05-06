@@ -1,21 +1,26 @@
+/**
+*   Tags
+*   id
+*   class
+*
+*   All in alphabetic order
+*/
+
 body {
-    margin: 0px;
     padding: 0px;
+    margin: auto;
 }
 
-#petriplate {
-    max-width: 50%;
-    float: right;
+h1, h2, h3 {
+    text-align: center;
 }
 
-.laboratory {
-    max-width: 1200px;
+ul li {
+    margin-bottom: 5px;
 }
 
-.leftPanel {
-    max-width: 50%;
-    float: left;
-    padding-left: 5px;
+.container {
+    display: flex;
 }
 
 .controls {
@@ -27,17 +32,31 @@ body {
     display: none;
 }
 
+.laboratory {
+    max-width: 1200px;
+}
+
+.leftPanel {
+    min-width: 250px;
+    max-width: 580px;
+    float: left;
+    padding-right: 5px;
+}
+
+.petriplate {
+    float: right;
+}
+
 .sample {
     border-bottom: solid 1px black;
 }
 
-.sample-table img {
-    max-width: 300px;
-
-}
-
-.sample h2:hover{
+.sample h3:hover{
     cursor: pointer;
     color: red;
 }
 
+.sample-table img {
+    max-width: 250px;
+
+}

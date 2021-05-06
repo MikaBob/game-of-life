@@ -19,7 +19,6 @@ class PetriPlate {
                 } else {
                     this.cells[i][j].state = Cell.STATE_DEAD;
                 }
-                //this.cells[i][j].state = Cell.STATE_DEAD;
             }
         }
     }
@@ -34,9 +33,19 @@ class PetriPlate {
             }
         }
         this.nbAlive = countNbAlive;
-        fill(255, 255,255);
+
+        // right border of the petriplate
+        fill(color(127, 127, 127));
+        rect(this.size*Cell.WIDTH-1, 0, 1, this.size*Cell.WIDTH);
+
+        // bottom border of the petriplate (above the text)
         rect(0, this.size*Cell.WIDTH, this.size*Cell.WIDTH, Cell.WIDTH);
 
+        // white rectangle for displaying text
+        fill(255, 255,255);
+        rect(0, this.size*Cell.WIDTH+1, this.size*Cell.WIDTH+1, Cell.WIDTH-1);
+
+        // text
         fill(0, 0, 0);
         textSize(Cell.WIDTH*0.9);
         text("Gen. "+this.generationNumber+ "   Alive: "+this.nbAlive, Cell.WIDTH*0.1, this.size*Cell.WIDTH + Cell.WIDTH*0.8);
