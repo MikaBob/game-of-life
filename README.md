@@ -7,23 +7,25 @@ A cell is based on two state, Alive (black) or Dead (white/empty)
 
 Here are some rule that "run" the game:
 
-- An empty case is adjacent to exactly 3 alive cells become a "new-born" cell (reproduction)
+- An empty case with exactly 3 alive cells become a "new-born" cell (reproduction)
 
-- A cell (alive) that has 2 or 3 neighbours, remains alive (survival)
+- A living cell that with 2 or 3 neighbours, remains alive (survival)
 
-- Any other case, the cell dies (surpopulation) or remains empty (not enough neighbours)
+- Any other case, the cell dies (surpopulation) or remains empty (not enough for reproduction)
 
 # How to "play"
 
 Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) in a browser
 
-Click on Start =)
+Click on Play =)
 
 # Features
 
-On page refresh it will generate a 50*50 gird, each cell has 20% probability to start alive
+On page refresh it will generate a 60*60 gird, each cell has 20% probability to start alive
 
 Click (or drag) on cells to change its state
+
+Button "Speed" change the refresh rate
 
 Button "Next step" pause the game and generate the next step
 
@@ -31,4 +33,6 @@ Button "Play" will run the game. A second click will pause.
 
 Button "Erase" will empty the petriplate.
 
-Some specific setup are cool, just clic on the title and recreate the pattern yourself ;)
+Button "Reload" will regenerate a population.
+
+Some specific setup are cool, just click on the title and re-create the pattern yourself ;)
