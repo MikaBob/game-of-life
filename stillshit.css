@@ -11,12 +11,21 @@ body {
     margin: auto;
 }
 
+button {
+    width: 75px;
+}
+
 h1, h2, h3 {
     text-align: center;
+    margin: 0 0 5px 0;
+}
+
+input {
+    width: 100%;
 }
 
 ul li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -40,7 +49,7 @@ ul li {
     min-width: 250px;
     max-width: 580px;
     float: left;
-    padding-right: 5px;
+    padding: 0px 5px;
 }
 
 .petriplate {
@@ -49,6 +58,7 @@ ul li {
 
 .sample {
     border-bottom: solid 1px black;
+    text-align: center;
 }
 
 .sample h3:hover{
@@ -58,5 +68,4 @@ ul li {
 
 .sample-table img {
     max-width: 250px;
-
 }
