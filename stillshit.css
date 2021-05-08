@@ -53,12 +53,10 @@ ul li {
 .leftPanel {
     min-width: 250px;
     max-width: 580px;
+    max-height: 600px;
     float: left;
     padding: 0px 5px;
-}
-
-.petriplate {
-    float: right;
+    overflow: scroll;
 }
 
 .sample {
@@ -73,4 +71,9 @@ ul li {
 
 .sample-table img {
     max-width: 250px;
+}
+
+.rightPanel {
+    width: 600px;
+    float: right;
 }

@@ -13,12 +13,13 @@
                 <h2>Explanation</h2>
                 <div class="description">
                     <p>
-                        The game of life is not really a game, as there is actually no player. It is a simple set of rules that determines what is going to happend at each step.
-                        On a 2D table (seen on the right, 60*60) each cell of the table represnet a (biological). A cell can have two states, dead /empty (white) or alive (black) and
-                        its state will depend on his 8 neighbours cell (horizontally, vertically and diagonally). There are 3 rules that "run" the game.
+                        The game of life is not really a game, as there is actually no player. It is a simple set of rules that determines a process.<br/><br/>
+                        In a 2D table (seen on the right, 60*60), each cell represnet a (biological) cell. A cell can have two states, dead/empty (white) or alive (black).
+                        Its state will depend on his 8 neighbours cell (horizontally, vertically and diagonally). <br/><br/>
+                        Here are 3 rules that "run" the game.
                     </p>
                     <ul>
-                        <li>If a empty / dead cell has exactly 3 living cells arounds, then it become alive as a "new-born" (reproduction)</li>
+                        <li>If an empty/dead cell has exactly 3 living cells arounds, then it become alive, as a "new-born" (reproduction)</li>
                         <li>If a living cell has 2 or 3 neighbours, it remains alive (survival)</li>
                         <li>Any other case, the cell dies (overpopulation) or remains empty (underpopulation, therefore not reproducing)</li>
                     </ul>
@@ -39,7 +40,7 @@
 
                 <h2>Special pattern </h2>
                 <div class="sample-table">
-                    <p>There are some particular layouts that are cool to watch.<br/>Re-create them and see by yourself ;)</p>
+                    <p>There are some particular layouts that are cool to see. Re-create them and watch them evolving ;)</p>
                     <div class="sample">
                         <h3 onclick="toggle(this)">Pulsar</h3>
                         <img class="hidden" src="./img/pulsar.png"/>
@@ -69,13 +70,14 @@
                         <img class="hidden" src="./img/spaceship_launcher.png"/>
                     </div>
                 </div>
+                <br/>
                 <h2>That's it ?</h2>
-                <div class="wouldYouLikeToKnowMore"><p>It may seems pointless at first view. This is a typical excercie for IT-students but there is more, much more...
+                <div class="wouldYouLikeToKnowMore"><p>It may seems pointless at first view. This is a typical excercie for IT-students but there is more, much more...<br/><br/>
                         This page is a small presentation of the game of life, which can only hold 60*60 cells.
                         The awesomeness reside in the simplicity og the game, and the complexity of the result.
-                        This is called the game of life for an excellent anaology to life: The emergence. From a simple set of rules we create systems, that develop and evolve.
-                        Just like you, you are a very complex system of cells.
-                        You can look up for much more complexe system and pattern that create amazing designs.
+                        This is called the game of life for an excellent anaology to life: The emergence. <br/><br/>From a simple set of rules we create interractions between elements in a 2D universe. These elements (cells) will develop and evolve. Some to a stable system and becomes more than what there were defined from.
+                        Just like living organisme. We are a very complex system but deep down, the coding is actually quite simple.<br/><br/>We do unimaginable far more what cells purposely do.
+                        You can look up for much more complexe system and pattern that create amazing designs and will blow your mind !
                     </p>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gun</a></li>
@@ -85,16 +87,16 @@
                         <li><a href="https://en.wikipedia.org/wiki/Breeder_(cellular_automaton)">Breeder</a></li>
                         <li><a href="https://www.conwaylife.com/wiki/Replicator">High life Replicator</a></li>
                     </ul>
-                    <br>
                     <p>Or with <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">other environements (1D)</a> which also has their cool pattern / designs.
-                        Looks for videos. This is interesting.
-
-                        do not miss the most incredible thing about this game. Re-creating <a href="https://www.youtube.com/watch?v=vGWGeund3eA">Logic gates</a>
+                        Look up for videos. This is very interesting if you are curious enough.<br/><br/>
+                        Do not miss the most incredible thing about this game. Re-creating <a href="https://www.youtube.com/watch?v=vGWGeund3eA">Logic gates</a>
                         which lead to machine like <a href="https://www.youtube.com/watch?v=3NDAZ5g4EuU">a digital clock</a>
-                        or even a <a href="https://www.youtube.com/watch?v=xP5-iIeKXE8">simulation of the game by itself</a> and do not forget. This is all generated by a set of 3 rules...</p>
+                        or even a <a href="https://www.youtube.com/watch?v=xP5-iIeKXE8">simulation of the game by itself</a><br/><br/>Remember, all of this is generated by a set of 3 rules...</p>
                 </div>
             </div>
-            <div id="petriplate" class="petriplate"></div>
+           <div class="rightPanel">
+                <div id="petriplate" class="petriplate"></div>
+            </div>
        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
@@ -123,7 +125,6 @@
             });
 
             $('#btn_gameSpeed').change(()=>{
-                $('label[for="btn_gameSpeed"]').text('Speed');
                 clearInterval(interval);
                 interval = null;
             });
@@ -144,7 +145,6 @@
                 const CANVAS_SIZE = 600;
 
                 let canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE+Cell.WIDTH);
-                //canvas.position(CANVAS_SIZE/4, 0);
                 canvas.parent('petriplate');
                 background(200, 200, 200);
             }
@@ -168,7 +168,6 @@
                     let indexX = ceil(mouseY / Cell.WIDTH)-1;
                     let indexY = ceil(mouseX / Cell.WIDTH)-1;
                     if(indexX < sample.size && indexY < sample.size) {
-                        //console.log(indexX,indexY, sample.cells[indexX][indexY]);
                         return sample.cells[indexX][indexY];
                     }
                 }
