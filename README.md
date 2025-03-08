@@ -15,7 +15,7 @@ Here are some rule that "run" the game:
 
 # How to "play"
 
-Open [index.html](https://github.com/MikaBob/game-of-life/blob/master/index.html) in a browser
+Open [index.html](https://mikabob.github.io/game-of-life/) in a browser
 
 Click on Play =)
 
